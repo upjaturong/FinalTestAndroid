@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
                 val StudentName = cursor.getString(cursor.getColumnIndex("Name"))
                 val StudentId = cursor.getString(cursor.getColumnIndex("StudentId"))
                 listNotes.add(Student(ID,StudentName,StudentId))
-
             } while (cursor.moveToNext())
         }
 
@@ -58,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         val total = stuLv.count
         val mActionBar = supportActionBar
         if (mActionBar != null) {
-            //set to actionbar as subtitle of actionbar
             mActionBar.subtitle = "You have $total students in list..."
         }
     }
@@ -82,24 +80,20 @@ class MainActivity : AppCompatActivity() {
     inner class MyNotesAdapter(context: Context, private var listStudentAdapter: ArrayList<Student>) :
         BaseAdapter() {
         private var context: Context? = context
-
         @SuppressLint("ViewHolder", "InflateParams")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            //inflate layout row.xml
             val myView = layoutInflater.inflate(R.layout.student_detail, null)
-            val myNote = listStudentAdapter[position]
-            myView.student_nameTv.text = myNote.studentName
-            myView.student_IdTv.text = myNote.studentId
-            //delete button click
+            val myStudent = listStudentAdapter[position]
+            myView.student_nameTv.text = myStudent.studentName
+            myView.student_IdTv.text = myStudent.studentId
             myView.deleteBtn.setOnClickListener {
                 val dbManager = DbStudent(this.context!!)
-                val selectionArgs = arrayOf(myNote.nodeID.toString())
+                val selectionArgs = arrayOf(myStudent.nodeID.toString())
                 dbManager.delete("ID=?", selectionArgs)
                 LoadQuery("%")
             }
-            //edit//update button click
             myView.editBtn.setOnClickListener {
-                GoToUpdateFun(myNote)
+                GoToUpdateFun(myStudent)
             }
             return myView
         }
@@ -115,14 +109,13 @@ class MainActivity : AppCompatActivity() {
         override fun getCount(): Int {
             return listStudentAdapter.size
         }
-
     }
 
     private fun GoToUpdateFun(myStudent: Student) {
         val intent = Intent(this, AddStudent::class.java)
-        intent.putExtra("ID", myStudent.nodeID) //put id
-        intent.putExtra("studentname", myStudent.studentName) //ut name
-        intent.putExtra("studentid", myStudent.studentId) //put description
-        startActivity(intent) //start activity
+        intent.putExtra("ID", myStudent.nodeID)
+        intent.putExtra("studentname", myStudent.studentName)
+        intent.putExtra("studentid", myStudent.studentId)
+        startActivity(intent)
     }
 }

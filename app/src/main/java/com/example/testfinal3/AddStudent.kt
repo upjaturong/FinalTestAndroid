@@ -35,22 +35,22 @@ class AddStudent : AppCompatActivity() {
         if (id ==0){
             val ID = dbManager.insert(values)
             if (ID > 0){
-                Toast.makeText(this, "Note is added", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Student is added", Toast.LENGTH_SHORT).show()
                 finish()
             }
             else{
-                Toast.makeText(this, "Error adding note...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error adding student...", Toast.LENGTH_SHORT).show()
             }
         }
         else{
             val selectionArgs = arrayOf(id.toString())
             val ID = dbManager.update(values, "ID=?", selectionArgs)
             if (ID>0){
-                Toast.makeText(this, "Note is added", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Student is added", Toast.LENGTH_SHORT).show()
                 finish()
             }
             else{
-                Toast.makeText(this, "Error adding note...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error adding student...", Toast.LENGTH_SHORT).show()
             }
         }
     }

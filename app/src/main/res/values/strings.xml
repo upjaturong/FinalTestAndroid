@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TestFinal3</string>
+    <string name="student_id">Student Id</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
 </resources>
