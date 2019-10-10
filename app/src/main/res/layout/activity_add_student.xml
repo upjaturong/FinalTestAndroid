@@ -22,6 +22,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:paddingStart="10dp"
                 android:id="@+id/stu_id_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,9 +34,11 @@
                 android:layout_height="1dp"
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:background="@color/colorPrimaryDark" />
             <EditText
-
+                android:paddingStart="10dp"
                 android:id="@+id/stu_name_ed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

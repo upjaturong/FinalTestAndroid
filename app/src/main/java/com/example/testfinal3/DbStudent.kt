@@ -13,9 +13,12 @@ class DbStudent(context: Context) {
 var dbName = "MyStudent"
     var dbTable = "Student"
     var colID = "ID"
-    var colStudentName = "StudentName"
+
+    var colName = "Name"
+
     var colStudentId= "StudentId"
-    var dbVersion = 1
+
+    var dbVersion = 3
 
     var sqlDB: SQLiteDatabase? =null
 
@@ -28,7 +31,7 @@ var dbName = "MyStudent"
         SQLiteOpenHelper(context, dbName, null, dbVersion) {
 
         override fun onCreate(db: SQLiteDatabase?) {
-            val sqlCreateTable = "CREATE TABLE IF NOT EXISTS $dbTable ($colID INTEGER PRIMARY KEY,$colStudentName TEXT, $colStudentId TEXT);"
+            val sqlCreateTable = "CREATE TABLE IF NOT EXISTS $dbTable ($colID INTEGER PRIMARY KEY,$colName TEXT, $colStudentId TEXT);"
             db!!.execSQL(sqlCreateTable)
             Toast.makeText(this.context, "database created...", Toast.LENGTH_SHORT).show()
         }

@@ -15,7 +15,6 @@ class AddStudent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_student)
 
-
         try {
             val bundle:Bundle = intent.extras!!
             id = bundle.getInt("ID",0)
@@ -30,8 +29,8 @@ class AddStudent : AppCompatActivity() {
     fun addStudent(view: View){
         val dbManager = DbStudent(this)
         val values = ContentValues()
-        values.put("Title", stu_name_ed.text.toString())
-        values.put("Description", stu_id_ed.text.toString())
+        values.put("Name", stu_name_ed.text.toString())
+        values.put("StudentId", stu_id_ed.text.toString())
 
         if (id ==0){
             val ID = dbManager.insert(values)
