@@ -19,14 +19,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/descTv"
+                android:id="@+id/student_nameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="60162110185-7"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/titleTv"
+                android:id="@+id/student_IdTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jaturong Duangchit"
